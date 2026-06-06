@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>晚餐 · 饮食方案</title>
+<title>晚餐 · 营养食谱</title>
 <style>
 :root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -31,38 +31,31 @@ table td { padding:12px 10px; border-bottom:1px solid var(--border); }
 <body>
 
 <div class="header">
-  <h1>🌙 晚餐 · 34.0g 蛋白</h1>
-  <div class="sub">18:00 · 易消化、不过饱</div>
+  <h1>🌙 晚餐 · <span id="targetProtein">34</span>g 蛋白</h1>
+  <div class="sub" id="headerSub">18:00 · 易消化、不过饱</div>
 </div>
 
 <div class="container">
 
   <div class="section-title">🍽️ 今日搭配</div>
   <div class="card">
-    <div class="food-list">
-      🍚 米饭 <strong>1 碗（200g 熟饭）</strong> <span class="detail">（5.2g 蛋白）</span><br>
-      🐟 清蒸鲈鱼 <strong>掌心大（120g）</strong> <span class="detail">（22.3g 蛋白，易消化吸收）</span><br>
-      🫘 豆腐干 <strong>3-4 块（30g）</strong> <span class="detail">（4.5g 蛋白）</span><br>
-      🍅 番茄炒胡萝卜 <strong>1 盘（150g）</strong> <span class="detail">（约 2g 蛋白，色彩增进食欲）</span>
-    </div>
-    <div class="summary">
-      <span>🥩 蛋白 34.0g</span><span>🔥 608 kcal</span>
-    </div>
+    <div class="food-list" id="todayMeal"></div>
+    <div class="summary" id="todaySummary"></div>
   </div>
 
-  <div class="section-title">🐟 鱼类轮换表（每天 120g）</div>
+  <div class="section-title">🐟 鱼类轮换表（每天 <span id="fishAmount">120</span>g）</div>
   <div class="card">
     <table>
-      <tr><th>食材</th><th>120g蛋白</th><th>热量</th><th>做法</th></tr>
-      <tr><td>🐟 鲈鱼</td><td><strong>22.3g</strong></td><td>126</td><td>清蒸，最嫩</td></tr>
-      <tr><td>🐟 鲫鱼</td><td><strong>20.5g</strong></td><td>130</td><td>炖豆腐汤</td></tr>
-      <tr><td>🐟 草鱼</td><td><strong>19.9g</strong></td><td>136</td><td>水煮鱼片</td></tr>
-      <tr><td>🐟 带鱼</td><td><strong>21.2g</strong></td><td>152</td><td>干煎/红烧</td></tr>
-      <tr><td>🦀 河蟹（母）</td><td><strong>28.9g</strong></td><td>121</td><td>清蒸蘸醋</td></tr>
-      <tr><td>🦐 对虾/基围虾</td><td><strong>22.3g</strong></td><td>112</td><td>白灼 3 分钟</td></tr>
-      <tr><td>🦪 扇贝/牡蛎</td><td><strong>13.3g</strong></td><td>72</td><td>蒜蓉蒸，配豆腐干</td></tr>
+      <tr><th>食材</th><th id="fishLabelH">120g蛋白</th><th>热量</th><th>做法</th></tr>
+      <tr><td>🐟 鲈鱼</td><td><strong id="f1">22.3g</strong></td><td>105</td><td>清蒸，最嫩</td></tr>
+      <tr><td>🐟 鲫鱼</td><td><strong id="f2">20.5g</strong></td><td>108</td><td>炖豆腐汤</td></tr>
+      <tr><td>🐟 草鱼</td><td><strong id="f3">19.9g</strong></td><td>113</td><td>水煮鱼片</td></tr>
+      <tr><td>🐟 带鱼</td><td><strong id="f4">21.2g</strong></td><td>127</td><td>干煎/红烧</td></tr>
+      <tr><td>🦀 河蟹（母）</td><td><strong id="f5">21.0g</strong></td><td>103</td><td>清蒸蘸醋</td></tr>
+      <tr><td>🦐 对虾/基围虾</td><td><strong id="f6">21.8g</strong></td><td>101</td><td>白灼 3 分钟</td></tr>
+      <tr><td>🦪 扇贝/牡蛎</td><td><strong id="f7">6.4g</strong></td><td>60</td><td>蒜蓉蒸，配豆腐干</td></tr>
     </table>
-    <div class="tip">💡 扇贝蛋白偏低时，多加一份豆腐干（30g → 4.5g补上）</div>
+    <div class="tip">💡 扇贝蛋白偏低时，多加一份豆腐干补足</div>
   </div>
 
   <div class="section-title">🫘 豆制品补充（晚餐搭配）</div>
@@ -77,18 +70,8 @@ table td { padding:12px 10px; border-bottom:1px solid var(--border); }
   </div>
 
   <div class="tip">
-    💡 <strong>晚餐原则：</strong>鱼肉蛋白易消化、脂肪少，晚上不增加胃肠负担。用鱼不用红肉，配少量豆腐干补足蛋白。
+    💡 <strong>晚餐原则：</strong>鱼肉蛋白易消化、脂肪少，晚上不增加胃肠负担。
   </div>
-
-
-<script>
-var s=JSON.parse(localStorage.getItem("userSettings")||"{"weight":73,"mode":"treatment"}");
-if(s.mode==="normal"){
-  var lo=Math.round(s.weight*0.8),hi=Math.round(s.weight*1.2);
-  var sub=document.querySelector(".header .sub");
-  if(sub)sub.textContent="🌿 日常模式 · "+s.weight+"kg · 今日蛋白 "+lo+"~"+hi+"g";
-}
-</script>
 
 </div>
 
@@ -98,6 +81,62 @@ if(s.mode==="normal"){
   <a href="dinner.html" class="nav-item active"><span class="nav-icon">🌙</span>晚餐</a>
   <a href="more.html" class="nav-item"><span class="nav-icon">📋</span>更多</a>
 </nav>
+
+<script src="foods.js"></script>
+<script>
+(function(){
+var s = getSettings();
+var t = dailyTarget(s);
+var dinnerTarget = Math.round(t.mid * 0.28);
+var scale = (s.weight * (s.mode === 'treatment' ? 1.7 : 1.0)) / (73 * 1.7);
+
+document.getElementById('targetProtein').textContent = dinnerTarget;
+if (s.mode === 'normal') {
+  document.getElementById('headerSub').textContent = '🌿 日常模式 · ' + s.weight + 'kg · 今日蛋白 ' + t.lo + '~' + t.hi + 'g';
+}
+
+// Fish amount
+var fishG = Math.round(120 * scale / 10) * 10;
+fishG = Math.max(60, fishG);
+document.getElementById('fishAmount').textContent = fishG;
+document.getElementById('fishLabelH').textContent = fishG + 'g蛋白';
+
+var fishes = [
+  { prot: FOODS.bass.protein, id: 'f1' },
+  { prot: FOODS.carp.protein, id: 'f2' },
+  { prot: FOODS.grassCarp.protein, id: 'f3' },
+  { prot: FOODS.hairtail.protein, id: 'f4' },
+  { prot: FOODS.crab.protein, id: 'f5' },
+  { prot: FOODS.prawn.protein, id: 'f6' },
+  { prot: FOODS.scallop.protein, id: 'f7' },
+];
+fishes.forEach(function(f) {
+  document.getElementById(f.id).textContent = (f.prot * fishG / 100).toFixed(1) + 'g';
+});
+
+// Today's meal
+var riceG2 = Math.round(200 * scale / 25) * 25;
+riceG2 = Math.max(75, riceG2);
+var riceProt2 = (riceG2 / 100 * FOODS.rice.protein).toFixed(1);
+
+var tofuDryG = Math.round(30 * scale / 10) * 10;
+tofuDryG = Math.max(15, tofuDryG);
+var tofuDryProt = (tofuDryG / 100 * FOODS.tofuDry.protein).toFixed(1);
+
+var fishProt = (FOODS.bass.protein * fishG / 100).toFixed(1);
+var vegProt2 = Math.round(2 * scale * 10) / 10;
+
+var totalDinner = Math.round((parseFloat(riceProt2) + parseFloat(fishProt) + parseFloat(tofuDryProt) + vegProt2) * 10) / 10;
+
+document.getElementById('todayMeal').innerHTML =
+  FOODS.rice.icon + ' 米饭 <strong>' + riceG2 + 'g 熟饭</strong> <span class="detail">（2.6g/100g = ' + riceProt2 + 'g）</span><br>' +
+  FOODS.bass.icon + ' 清蒸鲈鱼 <strong>' + fishG + 'g</strong> <span class="detail">（' + FOODS.bass.protein + 'g/100g = ' + fishProt + 'g）</span><br>' +
+  FOODS.tofuDry.icon + ' 豆腐干 <strong>' + tofuDryG + 'g</strong> <span class="detail">（' + FOODS.tofuDry.protein + 'g/100g = ' + tofuDryProt + 'g）</span><br>' +
+  '🍅 番茄炒胡萝卜 <strong>1 盘（150g）</strong> <span class="detail">（约 ' + vegProt2 + 'g 蛋白）</span>';
+
+document.getElementById('todaySummary').innerHTML = '<span>🥩 蛋白 ' + totalDinner + 'g</span><span>🔥 ~' + Math.round(totalDinner * 17) + ' kcal</span>';
+})();
+</script>
 
 </body>
 </html>

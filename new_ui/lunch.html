@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>午餐 · 饮食方案</title>
+<title>午餐 · 营养食谱</title>
 <style>
 :root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; --warn: #e07b39; }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -31,36 +31,29 @@ table td { padding:12px 10px; border-bottom:1px solid var(--border); }
 <body>
 
 <div class="header">
-  <h1>☀️ 午餐 · 43.8g 蛋白</h1>
-  <div class="sub">12:00 · 一天中最大份蛋白</div>
+  <h1>☀️ 午餐 · <span id="targetProtein">44</span>g 蛋白</h1>
+  <div class="sub" id="headerSub">12:00 · 一天中最大份蛋白</div>
 </div>
 
 <div class="container">
 
   <div class="section-title">🍽️ 今日搭配</div>
   <div class="card">
-    <div class="food-list">
-      🍚 米饭 <strong>1.5 碗（300g 熟饭）</strong> <span class="detail">（7.8g 蛋白）</span><br>
-      🥩 炒猪瘦肉 <strong>巴掌心大（120g）</strong> <span class="detail">（24.4g 蛋白，动物蛋白优质来源）</span><br>
-      🫘 家常豆腐 <strong>半块（100g）</strong> <span class="detail">（6.6g 蛋白）</span><br>
-      🥬 炒时蔬 <strong>1 盘（200g）</strong> <span class="detail">（菠菜/油菜/西兰花，约 5g 蛋白）</span>
-    </div>
-    <div class="summary">
-      <span>🥩 蛋白 43.8g</span><span>🔥 750 kcal</span>
-    </div>
+    <div class="food-list" id="todayMeal"></div>
+    <div class="summary" id="todaySummary"></div>
   </div>
 
-  <div class="section-title">🥩 肉类 7 日轮换（每天 120g）</div>
+  <div class="section-title">🥩 肉类 7 日轮换（每天 <span id="meatAmount">120</span>g）</div>
   <div class="card">
     <table>
-      <tr><th>星期</th><th>食材</th><th>120g蛋白</th><th>做法</th></tr>
-      <tr><td>一</td><td>🍗 鸡胸脯肉</td><td><strong>29.5g</strong></td><td>切丝炒青椒</td></tr>
-      <tr><td>二</td><td>🐷 猪瘦肉</td><td><strong>24.4g</strong></td><td>炒肉丝/肉片</td></tr>
-      <tr><td>三</td><td>🐂 酱牛肉</td><td><strong>39.8g</strong></td><td>切片凉拌</td></tr>
-      <tr><td>四</td><td>🦆 鸡腿肉</td><td><strong>24.2g</strong></td><td>红烧/炖汤</td></tr>
-      <tr><td>五</td><td>🐂 牛腱子</td><td><strong>27.6g</strong></td><td>卤牛肉切片</td></tr>
-      <tr><td>六</td><td>🦐 虾仁/基围虾</td><td><strong>25.0g</strong></td><td>清炒/白灼</td></tr>
-      <tr><td>日</td><td>🐑 羊肉（瘦）</td><td><strong>22.2g</strong></td><td>炖萝卜/葱爆</td></tr>
+      <tr><th>星期</th><th>食材</th><th id="meatLabelH">120g蛋白</th><th>做法</th></tr>
+      <tr><td>一</td><td>🍗 鸡胸脯肉</td><td><strong id="m1">29.5g</strong></td><td>切丝炒青椒</td></tr>
+      <tr><td>二</td><td>🐷 猪瘦肉</td><td><strong id="m2">24.8g</strong></td><td>炒肉丝/肉片</td></tr>
+      <tr><td>三</td><td>🐂 酱牛肉</td><td><strong id="m3">37.7g</strong></td><td>切片凉拌</td></tr>
+      <tr><td>四</td><td>🦆 鸡腿肉</td><td><strong id="m4">24.2g</strong></td><td>红烧/炖汤</td></tr>
+      <tr><td>五</td><td>🐂 牛腱子</td><td><strong id="m5">24.1g</strong></td><td>卤牛肉切片</td></tr>
+      <tr><td>六</td><td>🦐 虾仁/基围虾</td><td><strong id="m6">21.8g</strong></td><td>清炒/白灼</td></tr>
+      <tr><td>日</td><td>🐑 羊肉（瘦）</td><td><strong id="m7">22.2g</strong></td><td>炖萝卜/葱爆</td></tr>
     </table>
   </div>
 
@@ -88,16 +81,6 @@ table td { padding:12px 10px; border-bottom:1px solid var(--border); }
     <div class="tip">💡 每天至少 2 种颜色，午餐绿色+红色，晚餐白色+菌菇</div>
   </div>
 
-
-<script>
-var s=JSON.parse(localStorage.getItem("userSettings")||"{"weight":73,"mode":"treatment"}");
-if(s.mode==="normal"){
-  var lo=Math.round(s.weight*0.8),hi=Math.round(s.weight*1.2);
-  var sub=document.querySelector(".header .sub");
-  if(sub)sub.textContent="🌿 日常模式 · "+s.weight+"kg · 今日蛋白 "+lo+"~"+hi+"g";
-}
-</script>
-
 </div>
 
 <nav class="bottom-nav">
@@ -106,6 +89,61 @@ if(s.mode==="normal"){
   <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
   <a href="more.html" class="nav-item"><span class="nav-icon">📋</span>更多</a>
 </nav>
+
+<script src="foods.js"></script>
+<script>
+(function(){
+var s = getSettings();
+var t = dailyTarget(s);
+var lunchTarget = Math.round(t.mid * 0.37);
+var scale = (s.weight * (s.mode === 'treatment' ? 1.7 : 1.0)) / (73 * 1.7);
+
+document.getElementById('targetProtein').textContent = lunchTarget;
+if (s.mode === 'normal') {
+  document.getElementById('headerSub').textContent = '🌿 日常模式 · ' + s.weight + 'kg · 今日蛋白 ' + t.lo + '~' + t.hi + 'g';
+}
+
+// Meat amount
+var meatG = Math.round(120 * scale / 10) * 10;
+meatG = Math.max(50, meatG);
+document.getElementById('meatAmount').textContent = meatG;
+document.getElementById('meatLabelH').textContent = meatG + 'g蛋白';
+
+var meats = [
+  { prot: FOODS.chickenBreast.protein, id: 'm1' },
+  { prot: FOODS.porkLean.protein, id: 'm2' },
+  { prot: FOODS.beefSauce.protein, id: 'm3' },
+  { prot: FOODS.chickenLeg.protein, id: 'm4' },
+  { prot: FOODS.beefShank.protein, id: 'm5' },
+  { prot: FOODS.shrimp.protein, id: 'm6' },
+  { prot: FOODS.lambLean.protein, id: 'm7' },
+];
+meats.forEach(function(m) {
+  document.getElementById(m.id).textContent = (m.prot * meatG / 100).toFixed(1) + 'g';
+});
+
+var riceG = Math.round(300 * scale / 25) * 25;
+riceG = Math.max(100, riceG);
+var riceProt = (riceG / 100 * FOODS.rice.protein).toFixed(1);
+
+var tofuG = Math.round(100 * scale / 25) * 25;
+tofuG = Math.max(50, tofuG);
+var tofuProt = (tofuG / 100 * FOODS.tofu.protein).toFixed(1);
+
+var mainMeatProt = (FOODS.porkLean.protein * meatG / 100).toFixed(1);
+var vegProt = Math.round(5 * scale * 10) / 10;
+
+var totalLunch = Math.round((parseFloat(riceProt) + parseFloat(mainMeatProt) + parseFloat(tofuProt) + vegProt) * 10) / 10;
+
+document.getElementById('todayMeal').innerHTML =
+  FOODS.rice.icon + ' 米饭 <strong>' + riceG + 'g 熟饭</strong> <span class="detail">（2.6g/100g = ' + riceProt + 'g）</span><br>' +
+  FOODS.porkLean.icon + ' 炒猪瘦肉 <strong>' + meatG + 'g</strong> <span class="detail">（' + FOODS.porkLean.protein + 'g/100g = ' + mainMeatProt + 'g）</span><br>' +
+  FOODS.tofu.icon + ' 家常豆腐 <strong>' + tofuG + 'g</strong> <span class="detail">（6.6g/100g = ' + tofuProt + 'g）</span><br>' +
+  '🥬 炒时蔬 <strong>1 盘（200g）</strong> <span class="detail">（约 ' + vegProt + 'g 蛋白）</span>';
+
+document.getElementById('todaySummary').innerHTML = '<span>🥩 蛋白 ' + totalLunch + 'g</span><span>🔥 ~' + Math.round(totalLunch * 18) + ' kcal</span>';
+})();
+</script>
 
 </body>
 </html>

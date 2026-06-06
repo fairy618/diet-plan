@@ -23,7 +23,6 @@ table th { text-align:left; background:var(--pri-light); color:var(--pri); paddi
 table td { padding:12px 10px; border-bottom:1px solid var(--border); }
 table td:last-child { text-align:right; font-weight:600; color:var(--pri); }
 .combo { background:var(--pri-light); border-radius:10px; padding:14px; font-size:16px; margin-top:10px; }
-/* nav */
 .bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
 .nav-item { flex:1; text-align:center; padding:14px 6px; text-decoration:none; color:var(--t2); font-size:15px; font-weight:500; }
 .nav-item .nav-icon { display:block; font-size:28px; margin-bottom:2px; }
@@ -33,22 +32,16 @@ table td:last-child { text-align:right; font-weight:600; color:var(--pri); }
 <body>
 
 <div class="header">
-  <h1>🌅 早餐 · 29.1g 蛋白</h1>
-  <div class="sub">07:30 · 为新的一天打好底子</div>
+  <h1>🌅 早餐 · <span id="targetProtein">29</span>g 蛋白</h1>
+  <div class="sub" id="headerSub">07:30 · 为新的一天打好底子</div>
 </div>
 
 <div class="container">
 
   <div class="section-title">🍽️ 今日搭配</div>
   <div class="card">
-    <div class="food-list">
-      🥚 水煮鸡蛋 <strong>2 个</strong> <span class="detail">（50g/个，6.6g蛋白×2 = 13.1g）</span><br>
-      🥛 全脂牛奶 <strong>1 盒 250ml</strong> <span class="detail">（9.0g 蛋白）</span><br>
-      🍞 馒头/花卷 <strong>1 个 100g</strong> <span class="detail">（7.0g 蛋白）</span>
-    </div>
-    <div class="summary">
-      <span>🥩 蛋白 29.1g</span><span>🔥 540 kcal</span>
-    </div>
+    <div class="food-list" id="todayMeal"></div>
+    <div class="summary" id="todaySummary"></div>
   </div>
 
   <div class="section-title">🔄 替代品选择</div>
@@ -69,7 +62,7 @@ table td:last-child { text-align:right; font-weight:600; color:var(--pri); }
     <h3>🥛 奶类（选 1 份 ≈ 9g 蛋白）</h3>
     <table>
       <tr><th>食材</th><th>份量</th><th>蛋白</th></tr>
-      <tr><td>🥛 全脂牛奶</td><td>250ml</td><td>9.0g</td></tr>
+      <tr><td>🥛 全脂牛奶</td><td>250ml</td><td>8.3g</td></tr>
       <tr><td>🥛 低脂牛奶</td><td>250ml</td><td>9.5g</td></tr>
       <tr><td>🥛 豆浆</td><td>300ml</td><td>9.0g</td></tr>
       <tr><td>🥛 酸奶</td><td>250ml</td><td>7.0g</td></tr>
@@ -89,19 +82,11 @@ table td:last-child { text-align:right; font-weight:600; color:var(--pri); }
 
   <div class="combo">
     🎯 <strong>常见组合速查：</strong><br>
-    · 2蛋+牛奶+馒头 = <strong>29.1g</strong> ✅<br>
+    · 2蛋+牛奶+馒头 = <strong>28.8g</strong> ✅<br>
     · 蒸蛋羹+豆浆+花卷 = <strong>28.5g</strong><br>
     · 1蛋+松花蛋+牛奶+馒头 = <strong>30.9g</strong><br>
     · 2蛋+酸奶+杂粮粥 = <strong>25.1g</strong>（偏少，午餐补）
   </div>
-
-<script>
-var s = JSON.parse(localStorage.getItem('userSettings') || '{"weight":73,"mode":"treatment"}');
-if (s.mode === 'normal') {
-  var lo = Math.round(s.weight * 0.8), hi = Math.round(s.weight * 1.2);
-  document.querySelector('.header .sub').textContent = '🌿 日常模式 · ' + s.weight + 'kg · 今日蛋白 ' + lo + '~' + hi + 'g';
-}
-</script>
 
 </div>
 
@@ -111,6 +96,46 @@ if (s.mode === 'normal') {
   <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
   <a href="more.html" class="nav-item"><span class="nav-icon">📋</span>更多</a>
 </nav>
+
+<script src="foods.js"></script>
+<script>
+(function(){
+var s = getSettings();
+var t = dailyTarget(s);
+var breakfastTarget = Math.round(t.mid * 0.25);
+
+// Update header
+document.getElementById('targetProtein').textContent = breakfastTarget;
+if (s.mode === 'normal') {
+  document.getElementById('headerSub').textContent = '🌿 日常模式 · ' + s.weight + 'kg · 今日蛋白 ' + t.lo + '~' + t.hi + 'g';
+}
+
+// Scale servings based on the ratio to base (73kg, treatment 1.7)
+var scale = (s.weight * (s.mode === 'treatment' ? 1.7 : 1.0)) / (73 * 1.7);
+
+// Calculate today's meal
+var eggs = Math.max(1, Math.round(2 * scale));  // at least 1 egg
+var eggProt = eggs * 6.6;
+
+var milkMl = Math.round(250 * scale / 50) * 50;  // round to 50ml
+milkMl = Math.max(100, milkMl);
+var milkProt = Math.round(milkMl / 100 * 3.3 * 10) / 10;
+
+var breadG = Math.round(100 * scale / 25) * 25;  // round to 25g
+var breadProt = Math.round(breadG / 100 * 7.0 * 10) / 10;
+
+var totalProt = Math.round((eggProt + milkProt + breadProt) * 10) / 10;
+
+// Render today's meal
+var mealHtml =
+  FOODS.egg.icon + ' ' + FOODS.egg.name + ' <strong>' + eggs + ' 个</strong> <span class="detail">（6.6g/个 ×' + eggs + ' = ' + eggProt.toFixed(1) + 'g）</span><br>' +
+  FOODS.milk.icon + ' ' + FOODS.milk.name + ' <strong>' + milkMl + 'ml</strong> <span class="detail">（3.3g/100ml = ' + milkProt.toFixed(1) + 'g）</span><br>' +
+  FOODS.bread.icon + ' ' + FOODS.bread.name + ' <strong>' + breadG + 'g</strong> <span class="detail">（7.0g/100g = ' + breadProt.toFixed(1) + 'g）</span>';
+
+document.getElementById('todayMeal').innerHTML = mealHtml;
+document.getElementById('todaySummary').innerHTML = '<span>🥩 蛋白 ' + totalProt + 'g</span><span>🔥 ~' + Math.round(totalProt * 18) + ' kcal</span>';
+})();
+</script>
 
 </body>
 </html>
