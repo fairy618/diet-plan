@@ -18,6 +18,13 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 .link-card .info .name { font-size:18px; font-weight:600; }
 .link-card .info .detail { font-size:15px; color:var(--t2); margin-top:3px; }
 .link-card .arrow { color:var(--t2); font-size:18px; }
+
+.target-row { display:flex; gap:10px; margin-bottom:16px; }
+.target-card { flex:1; background:var(--card); border-radius:12px; padding:16px 10px; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+.target-card .num { font-size:28px; font-weight:800; color:var(--pri); }
+.target-card .unit { font-size:16px; color:var(--pri); font-weight:500; }
+.target-card .label { font-size:14px; color:var(--t2); margin-top:2px; }
+
 .bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
 .nav-item { flex:1; text-align:center; padding:14px 6px; text-decoration:none; color:var(--t2); font-size:15px; font-weight:500; }
 .nav-item .nav-icon { display:block; font-size:28px; margin-bottom:2px; }
@@ -31,6 +38,12 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 </div>
 
 <div class="container">
+
+  <div class="target-row">
+    <div class="target-card"><div class="num">118<span class="unit">g</span></div><div class="label">今日蛋白</div></div>
+    <div class="target-card"><div class="num">350<span class="unit">g</span></div><div class="label">蔬菜</div></div>
+    <div class="target-card"><div class="num">300<span class="unit">g</span></div><div class="label">水果</div></div>
+  </div>
 
   <a href="snacks.html" class="link-card">
     <span class="icon">🍎</span>
@@ -65,7 +78,6 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 </div>
 
 <nav class="bottom-nav">
-  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>首页</a>
   <a href="breakfast.html" class="nav-item"><span class="nav-icon">🌅</span>早餐</a>
   <a href="lunch.html" class="nav-item"><span class="nav-icon">☀️</span>午餐</a>
   <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
