@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>饮食方案 · 首页</title>
+<style>
+:root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; --warn: #e07b39; --red: #e74c3c; --info: #2c6faa; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--t); line-height:1.6; padding-bottom:80px; }
+.container { max-width:600px; margin:0 auto; padding:0 14px; }
+
+.hero { background:linear-gradient(135deg,#2a7f62,#1a5c46); color:#fff; padding:24px 20px 20px; text-align:center; }
+.hero h1 { font-size:19px; font-weight:700; }
+.hero .sub { font-size:12px; opacity:0.8; margin-top:4px; }
+
+.target-row { display:flex; gap:10px; margin:16px 0; }
+.target-card { flex:1; background:var(--card); border-radius:12px; padding:14px 10px; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+.target-card .num { font-size:22px; font-weight:800; color:var(--pri); }
+.target-card .unit { font-size:13px; color:var(--pri); font-weight:500; }
+.target-card .label { font-size:11px; color:var(--t2); margin-top:2px; }
+
+.section-title { font-size:16px; font-weight:700; color:var(--pri); margin:18px 0 10px; padding-left:10px; border-left:3px solid var(--pri); }
+
+.meal-link { display:flex; align-items:center; gap:12px; background:var(--card); border-radius:12px; padding:14px; margin-bottom:8px; text-decoration:none; color:var(--t); box-shadow:0 1px 3px rgba(0,0,0,0.05); transition:background 0.15s; }
+.meal-link:active { background:var(--pri-light); }
+.meal-link .icon { font-size:28px; flex-shrink:0; }
+.meal-link .info { flex:1; }
+.meal-link .info .name { font-size:15px; font-weight:600; }
+.meal-link .info .detail { font-size:12px; color:var(--t2); margin-top:2px; }
+.meal-link .arrow { color:var(--t2); font-size:18px; }
+
+.total-card { background:linear-gradient(135deg,#e8f5f0,#d4ede4); border-radius:12px; padding:16px; text-align:center; margin-top:10px; }
+.total-card .big { font-size:20px; font-weight:800; color:var(--pri); }
+.total-card .sub { font-size:12px; color:var(--t2); margin-top:4px; }
+
+/* Bottom nav */
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
+.nav-item { flex:1; text-align:center; padding:8px 4px; text-decoration:none; color:var(--t2); font-size:10px; transition:color 0.15s; }
+.nav-item .nav-icon { display:block; font-size:20px; margin-bottom:1px; }
+.nav-item.active { color:var(--pri); font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🥗 每日蛋白质达标饮食方案</h1>
+  <div class="sub">73kg · 蛋白目标 110~146g/天 · nutridata 数据校准</div>
+</div>
+
+<div class="container">
+
+  <div class="target-row">
+    <div class="target-card"><div class="num">118<span class="unit">g</span></div><div class="label">今日蛋白</div></div>
+    <div class="target-card"><div class="num">2300<span class="unit">ml</span></div><div class="label">饮水</div></div>
+    <div class="target-card"><div class="num">350<span class="unit">g</span></div><div class="label">蔬菜</div></div>
+    <div class="target-card"><div class="num">300<span class="unit">g</span></div><div class="label">水果</div></div>
+  </div>
+
+  <div class="total-card">
+    <div class="big">🎯 全天蛋白 118.4g ✅</div>
+    <div class="sub">动物蛋白 79.9g (68%) · 植物蛋白 38.5g (32%)</div>
+  </div>
+
+  <div class="section-title">🍽️ 一日五餐</div>
+
+  <a href="breakfast.html" class="meal-link">
+    <span class="icon">🌅</span>
+    <div class="info"><div class="name">早餐 07:30</div><div class="detail">29.1g 蛋白 · 540 kcal</div></div>
+    <span class="arrow">›</span>
+  </a>
+  <a href="snacks.html" class="meal-link">
+    <span class="icon">🍎</span>
+    <div class="info"><div class="name">上午加餐 10:00</div><div class="detail">水果 1 份 · 补水 300ml</div></div>
+    <span class="arrow">›</span>
+  </a>
+  <a href="lunch.html" class="meal-link">
+    <span class="icon">☀️</span>
+    <div class="info"><div class="name">午餐 12:00</div><div class="detail">43.8g 蛋白 · 750 kcal</div></div>
+    <span class="arrow">›</span>
+  </a>
+  <a href="snacks.html" class="meal-link">
+    <span class="icon">🍊</span>
+    <div class="info"><div class="name">下午加餐 15:30</div><div class="detail">4.9g 蛋白 · 酸奶 + 水果</div></div>
+    <span class="arrow">›</span>
+  </a>
+  <a href="dinner.html" class="meal-link">
+    <span class="icon">🌙</span>
+    <div class="info"><div class="name">晚餐 18:00</div><div class="detail">34.0g 蛋白 · 608 kcal</div></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <div class="section-title">📋 更多工具</div>
+  <a href="weekly.html" class="meal-link">
+    <span class="icon">🛒</span>
+    <div class="info"><div class="name">一周采购清单</div><div class="detail">蛋/奶/肉/鱼/豆制品/蔬果 一周总量</div></div>
+    <span class="arrow">›</span>
+  </a>
+  <a href="ranking.html" class="meal-link">
+    <span class="icon">🏆</span>
+    <div class="info"><div class="name">蛋白质密度排行榜</div><div class="detail">nutridata 40 种常见食物排名</div></div>
+    <span class="arrow">›</span>
+  </a>
+  <a href="chemo.html" class="meal-link">
+    <span class="icon">💊</span>
+    <div class="info"><div class="name">化疗期指南</div><div class="detail">化疗前中后注意事项 + 特殊时期应对</div></div>
+    <span class="arrow">›</span>
+  </a>
+  <a href="faq.html" class="meal-link">
+    <span class="icon">❓</span>
+    <div class="info"><div class="name">营养常见问答</div><div class="detail">5 个高频疑问解答</div></div>
+    <span class="arrow">›</span>
+  </a>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item active"><span class="nav-icon">🏠</span>首页</a>
+  <a href="breakfast.html" class="nav-item"><span class="nav-icon">🌅</span>早餐</a>
+  <a href="lunch.html" class="nav-item"><span class="nav-icon">☀️</span>午餐</a>
+  <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
+  <a href="more.html" class="nav-item"><span class="nav-icon">📋</span>更多</a>
+</nav>
+
+</body>
+</html>

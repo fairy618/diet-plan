@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>更多 · 饮食方案</title>
+<style>
+:root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--t); line-height:1.6; padding-bottom:80px; }
+.container { max-width:600px; margin:0 auto; padding:0 14px; }
+.header { background:linear-gradient(135deg,#555,#333); color:#fff; padding:20px; text-align:center; }
+.header h1 { font-size:18px; font-weight:700; }
+.link-card { display:flex; align-items:center; gap:12px; background:var(--card); border-radius:12px; padding:14px; margin:8px 0; text-decoration:none; color:var(--t); box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.link-card:active { background:var(--pri-light); }
+.link-card .icon { font-size:26px; flex-shrink:0; }
+.link-card .info { flex:1; }
+.link-card .info .name { font-size:15px; font-weight:600; }
+.link-card .info .detail { font-size:12px; color:var(--t2); margin-top:2px; }
+.link-card .arrow { color:var(--t2); font-size:18px; }
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
+.nav-item { flex:1; text-align:center; padding:8px 4px; text-decoration:none; color:var(--t2); font-size:10px; }
+.nav-item .nav-icon { display:block; font-size:20px; margin-bottom:1px; }
+.nav-item.active { color:var(--pri); font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📋 更多工具</h1>
+</div>
+
+<div class="container">
+
+  <a href="snacks.html" class="link-card">
+    <span class="icon">🍎</span>
+    <div class="info"><div class="name">加餐 & 睡前补充</div><div class="detail">上午加餐 · 下午加餐 · 睡前牛奶 · 水果轮换</div></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <a href="weekly.html" class="link-card">
+    <span class="icon">🛒</span>
+    <div class="info"><div class="name">一周采购清单</div><div class="detail">蛋/奶/肉/鱼/豆制品/蔬果 一周总量</div></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <a href="ranking.html" class="link-card">
+    <span class="icon">🏆</span>
+    <div class="info"><div class="name">蛋白质密度排行榜</div><div class="detail">nutridata 40 种常见食物 · 豆/肉/鱼/蛋/菌/蔬</div></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <a href="chemo.html" class="link-card">
+    <span class="icon">💊</span>
+    <div class="info"><div class="name">化疗期完整指南</div><div class="detail">化疗前中后注意事项 · 特殊时期应对</div></div>
+    <span class="arrow">›</span>
+  </a>
+
+  <a href="faq.html" class="link-card">
+    <span class="icon">❓</span>
+    <div class="info"><div class="name">营养常见问答</div><div class="detail">饿死病灶？喝汤有营养？发物能吃？</div></div>
+    <span class="arrow">›</span>
+  </a>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>首页</a>
+  <a href="breakfast.html" class="nav-item"><span class="nav-icon">🌅</span>早餐</a>
+  <a href="lunch.html" class="nav-item"><span class="nav-icon">☀️</span>午餐</a>
+  <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
+  <a href="more.html" class="nav-item active"><span class="nav-icon">📋</span>更多</a>
+</nav>
+
+</body>
+</html>

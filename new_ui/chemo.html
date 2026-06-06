@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>化疗指南 · 饮食方案</title>
+<style>
+:root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; --warn: #e07b39; --red: #c0392b; --info: #2c6faa; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--t); line-height:1.6; padding-bottom:80px; }
+.container { max-width:600px; margin:0 auto; padding:0 14px; }
+.header { background:linear-gradient(135deg,#c0392b,#8e1b14); color:#fff; padding:16px 20px; text-align:center; }
+.header h1 { font-size:17px; }
+.back { display:inline-block; color:#fff; text-decoration:none; font-size:13px; margin-bottom:6px; opacity:0.8; }
+.section-title { font-size:15px; font-weight:700; color:var(--pri); margin:14px 0 8px; padding-left:10px; border-left:3px solid var(--pri); }
+.card { background:var(--card); border-radius:12px; padding:14px; margin-bottom:8px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.card h3 { font-size:14px; font-weight:600; margin-bottom:8px; }
+.chemo-pre h3 { color:var(--info); } .chemo-during h3 { color:var(--warn); } .chemo-post h3 { color:var(--pri); }
+ul { padding-left:18px; font-size:13px; line-height:2.0; }
+.badge { display:inline-block; padding:2px 7px; border-radius:4px; font-size:11px; font-weight:600; }
+.badge-info { background:#e3f2fd; color:var(--info); }
+.badge-warn { background:#fff3e0; color:var(--warn); }
+.badge-good { background:var(--pri-light); color:var(--pri); }
+.tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.tags span { background:#ffebee; padding:3px 8px; border-radius:4px; font-size:11px; }
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
+.nav-item { flex:1; text-align:center; padding:8px 4px; text-decoration:none; color:var(--t2); font-size:10px; }
+.nav-item .nav-icon { display:block; font-size:20px; margin-bottom:1px; }
+.nav-item.active { color:var(--pri); font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="more.html" class="back">← 返回</a>
+  <h1>💊 化疗期完整指南</h1>
+</div>
+
+<div class="container">
+
+  <div class="card chemo-pre">
+    <h3><span class="badge badge-info">化疗前</span> 准备</h3>
+    <ul>
+      <li>保持乐观心态，焦虑恐惧会加重反应</li>
+      <li>加强营养：蛋、乳、禽、鱼、豆制品</li>
+      <li>配合检查：血常规、肝肾功、心电图</li>
+      <li>遵医嘱服预处理药（地塞米松等）</li>
+      <li><strong>尽早做中心静脉置管（PICC/输液港）</strong></li>
+      <li>前晚充足睡眠（温水泡脚、热牛奶）</li>
+    </ul>
+  </div>
+
+  <div class="card chemo-during">
+    <h3><span class="badge badge-warn">化疗中</span> 注意</h3>
+    <ul>
+      <li>保暖防感冒</li>
+      <li>营养丰富、易消化食物，少食多餐</li>
+      <li>饮水 <strong>2000~3000ml/天</strong>，加速排毒</li>
+      <li>多吃新鲜蔬果，预防便秘</li>
+      <li>适当活动，保证睡眠</li>
+      <li>早晚刷牙、进食前后漱口，防口腔炎</li>
+      <li>静脉部位 <strong style="color:var(--red);">红斑/疼痛/肿胀 → 立刻告知护士</strong></li>
+      <li>药物外渗：不热敷，护士指导下冷敷</li>
+      <li>防坠床/跌倒，不适及时告知</li>
+    </ul>
+  </div>
+
+  <div class="card chemo-post">
+    <h3><span class="badge badge-good">化疗后</span> 恢复</h3>
+    <ul>
+      <li>保持心情愉快，正视不适</li>
+      <li>生活规律，劳逸结合，适当锻炼</li>
+      <li>饮食卫生，易消化、高维生素、高蛋白</li>
+      <li>恶心呕吐：清淡饮食，呕吐后温水漱口</li>
+      <li>防寒保暖，室内通风</li>
+      <li>常剪指甲/胡须，避免损伤</li>
+      <li><strong>定期复查</strong>，头晕/出血等不适及时就医</li>
+    </ul>
+  </div>
+
+  <div class="section-title">⚠️ 特殊时期应对</div>
+
+  <div class="card">
+    <h3>🚫 便秘时</h3>
+    <ul>
+      <li>多饮水</li>
+      <li>多吃高纤维食物：芹菜、韭菜、香蕉、橘子</li>
+      <li>主食中加麻油，或遵医嘱服麻仁丸</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>💧 腹泻时</h3>
+    <ul>
+      <li><strong style="color:var(--red);">暂停/减少</strong> 通便药物：乳果糖、麻仁丸</li>
+      <li><strong style="color:var(--red);">暂停/减少</strong> 通便蔬果：香蕉、火龙果、绿叶菜</li>
+      <li>补充水分和电解质，防止脱水</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🌡️ 发热时</h3>
+    <ul>
+      <li>体温上升期：多饮温开水</li>
+      <li>大量出汗后：喝 <strong>糖盐水</strong>，防电解质紊乱</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>化疗常见不良反应</h3>
+    <p style="font-size:12px;color:var(--t2);margin-bottom:8px;">以下反应几乎都是暂时的，停药后会逐步减轻或消失：</p>
+    <div class="tags">
+      <span>恶心呕吐</span><span>白细胞↓</span><span>血小板↓</span><span>脱发</span>
+      <span>发热</span><span>口腔炎</span><span>腹泻</span><span>便秘</span>
+      <span>肝肾毒性</span><span>皮肤反应</span>
+    </div>
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>首页</a>
+  <a href="breakfast.html" class="nav-item"><span class="nav-icon">🌅</span>早餐</a>
+  <a href="lunch.html" class="nav-item"><span class="nav-icon">☀️</span>午餐</a>
+  <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
+  <a href="more.html" class="nav-item active"><span class="nav-icon">📋</span>更多</a>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>早餐 · 饮食方案</title>
+<style>
+:root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--t); line-height:1.6; padding-bottom:80px; }
+.container { max-width:600px; margin:0 auto; padding:0 14px; }
+.header { background:linear-gradient(135deg,#2a7f62,#1a5c46); color:#fff; padding:20px; text-align:center; }
+.header h1 { font-size:18px; font-weight:700; }
+.header .sub { font-size:12px; opacity:0.8; margin-top:2px; }
+.section-title { font-size:15px; font-weight:700; color:var(--pri); margin:16px 0 10px; padding-left:10px; border-left:3px solid var(--pri); }
+.card { background:var(--card); border-radius:12px; padding:14px; margin-bottom:10px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.card h3 { font-size:14px; font-weight:600; color:var(--pri); margin-bottom:8px; }
+.food-list { font-size:14px; line-height:2.2; }
+.food-list .detail { font-size:12px; color:var(--t2); }
+.summary { margin-top:8px; padding-top:8px; border-top:1px dashed var(--border); font-size:13px; font-weight:600; color:var(--pri); display:flex; justify-content:space-between; flex-wrap:wrap; }
+table { width:100%; font-size:13px; border-collapse:collapse; }
+table th { text-align:left; background:var(--pri-light); color:var(--pri); padding:8px 6px; font-size:11px; }
+table td { padding:8px 6px; border-bottom:1px solid var(--border); }
+table td:last-child { text-align:right; font-weight:600; color:var(--pri); }
+.combo { background:var(--pri-light); border-radius:8px; padding:10px; font-size:13px; margin-top:8px; }
+/* nav */
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
+.nav-item { flex:1; text-align:center; padding:8px 4px; text-decoration:none; color:var(--t2); font-size:10px; }
+.nav-item .nav-icon { display:block; font-size:20px; margin-bottom:1px; }
+.nav-item.active { color:var(--pri); font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌅 早餐 · 29.1g 蛋白</h1>
+  <div class="sub">07:30 · 为新的一天打好底子</div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">🍽️ 今日搭配</div>
+  <div class="card">
+    <div class="food-list">
+      🥚 水煮鸡蛋 <strong>2 个</strong> <span class="detail">（50g/个，6.6g蛋白×2 = 13.1g）</span><br>
+      🥛 全脂牛奶 <strong>1 盒 250ml</strong> <span class="detail">（9.0g 蛋白）</span><br>
+      🍞 馒头/花卷 <strong>1 个 100g</strong> <span class="detail">（7.0g 蛋白）</span><br>
+      💧 温水 <strong>300ml</strong>
+    </div>
+    <div class="summary">
+      <span>🥩 蛋白 29.1g</span><span>🔥 540 kcal</span><span>💧 550ml</span>
+    </div>
+  </div>
+
+  <div class="section-title">🔄 替代品选择</div>
+
+  <div class="card">
+    <h3>🥚 蛋类（选 2 份 ≈ 13g 蛋白）</h3>
+    <table>
+      <tr><th>食材</th><th>份量</th><th>蛋白</th></tr>
+      <tr><td>🥚 煮鸡蛋</td><td>2 个</td><td>13.1g</td></tr>
+      <tr><td>🥚 蒸蛋羹</td><td>2 蛋</td><td>13.1g</td></tr>
+      <tr><td>🥚 土鸡蛋</td><td>2 个</td><td>14.4g</td></tr>
+      <tr><td>🥚 荷包蛋（煮）</td><td>2 个</td><td>12.3g</td></tr>
+      <tr><td>🥚 松花蛋（鸡蛋）</td><td>1 个</td><td>14.8g</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>🥛 奶类（选 1 份 ≈ 9g 蛋白）</h3>
+    <table>
+      <tr><th>食材</th><th>份量</th><th>蛋白</th></tr>
+      <tr><td>🥛 全脂牛奶</td><td>250ml</td><td>9.0g</td></tr>
+      <tr><td>🥛 低脂牛奶</td><td>250ml</td><td>9.5g</td></tr>
+      <tr><td>🥛 豆浆</td><td>300ml</td><td>9.0g</td></tr>
+      <tr><td>🥛 酸奶</td><td>250ml</td><td>7.0g</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>🍞 主食（选 1 份 ≈ 7g 蛋白）</h3>
+    <table>
+      <tr><th>食材</th><th>份量</th><th>蛋白</th></tr>
+      <tr><td>🍞 馒头</td><td>100g（1个）</td><td>7.0g</td></tr>
+      <tr><td>🍞 花卷</td><td>100g</td><td>6.4g</td></tr>
+      <tr><td>🥣 杂粮粥</td><td>1 碗</td><td>5g</td></tr>
+      <tr><td>🍞 全麦面包</td><td>2 片</td><td>7g</td></tr>
+    </table>
+  </div>
+
+  <div class="combo">
+    🎯 <strong>常见组合速查：</strong><br>
+    · 2蛋+牛奶+馒头 = <strong>29.1g</strong> ✅<br>
+    · 蒸蛋羹+豆浆+花卷 = <strong>28.5g</strong><br>
+    · 1蛋+松花蛋+牛奶+馒头 = <strong>30.9g</strong><br>
+    · 2蛋+酸奶+杂粮粥 = <strong>25.1g</strong>（偏少，午餐补）
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>首页</a>
+  <a href="breakfast.html" class="nav-item active"><span class="nav-icon">🌅</span>早餐</a>
+  <a href="lunch.html" class="nav-item"><span class="nav-icon">☀️</span>午餐</a>
+  <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
+  <a href="more.html" class="nav-item"><span class="nav-icon">📋</span>更多</a>
+</nav>
+
+</body>
+</html>

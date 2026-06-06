@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>晚餐 · 饮食方案</title>
+<style>
+:root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--t); line-height:1.6; padding-bottom:80px; }
+.container { max-width:600px; margin:0 auto; padding:0 14px; }
+.header { background:linear-gradient(135deg,#1a5c46,#2a7f62); color:#fff; padding:20px; text-align:center; }
+.header h1 { font-size:18px; font-weight:700; }
+.header .sub { font-size:12px; opacity:0.8; margin-top:2px; }
+.section-title { font-size:15px; font-weight:700; color:var(--pri); margin:16px 0 10px; padding-left:10px; border-left:3px solid var(--pri); }
+.card { background:var(--card); border-radius:12px; padding:14px; margin-bottom:10px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.card h3 { font-size:14px; font-weight:600; color:var(--pri); margin-bottom:8px; }
+.food-list { font-size:14px; line-height:2.2; }
+.food-list .detail { font-size:12px; color:var(--t2); }
+.summary { margin-top:8px; padding-top:8px; border-top:1px dashed var(--border); font-size:13px; font-weight:600; color:var(--pri); display:flex; justify-content:space-between; flex-wrap:wrap; }
+table { width:100%; font-size:13px; border-collapse:collapse; }
+table th { text-align:left; background:var(--pri-light); color:var(--pri); padding:8px 6px; font-size:11px; }
+table td { padding:8px 6px; border-bottom:1px solid var(--border); }
+.tip { background:var(--pri-light); border-radius:8px; padding:10px; font-size:12px; color:var(--t2); margin-top:8px; }
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
+.nav-item { flex:1; text-align:center; padding:8px 4px; text-decoration:none; color:var(--t2); font-size:10px; }
+.nav-item .nav-icon { display:block; font-size:20px; margin-bottom:1px; }
+.nav-item.active { color:var(--pri); font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌙 晚餐 · 34.0g 蛋白</h1>
+  <div class="sub">18:00 · 易消化、不过饱</div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">🍽️ 今日搭配</div>
+  <div class="card">
+    <div class="food-list">
+      🍚 米饭 <strong>1 碗（200g 熟饭）</strong> <span class="detail">（5.2g 蛋白）</span><br>
+      🐟 清蒸鲈鱼 <strong>掌心大（120g）</strong> <span class="detail">（22.3g 蛋白，易消化吸收）</span><br>
+      🫘 豆腐干 <strong>3-4 块（30g）</strong> <span class="detail">（4.5g 蛋白）</span><br>
+      🍅 番茄炒胡萝卜 <strong>1 盘（150g）</strong> <span class="detail">（约 2g 蛋白，色彩增进食欲）</span><br>
+      🫒 菜籽油 <strong>10g</strong> · 💧 温水 <strong>300ml</strong>
+    </div>
+    <div class="summary">
+      <span>🥩 蛋白 34.0g</span><span>🔥 608 kcal</span><span>💧 450ml</span>
+    </div>
+  </div>
+
+  <div class="section-title">🐟 鱼类轮换表（每天 120g）</div>
+  <div class="card">
+    <table>
+      <tr><th>食材</th><th>120g蛋白</th><th>热量</th><th>做法</th></tr>
+      <tr><td>🐟 鲈鱼</td><td><strong>22.3g</strong></td><td>126</td><td>清蒸，最嫩</td></tr>
+      <tr><td>🐟 鲫鱼</td><td><strong>20.5g</strong></td><td>130</td><td>炖豆腐汤</td></tr>
+      <tr><td>🐟 草鱼</td><td><strong>19.9g</strong></td><td>136</td><td>水煮鱼片</td></tr>
+      <tr><td>🐟 带鱼</td><td><strong>21.2g</strong></td><td>152</td><td>干煎/红烧</td></tr>
+      <tr><td>🦀 河蟹（母）</td><td><strong>28.9g</strong></td><td>121</td><td>清蒸蘸醋</td></tr>
+      <tr><td>🦐 对虾/基围虾</td><td><strong>22.3g</strong></td><td>112</td><td>白灼 3 分钟</td></tr>
+      <tr><td>🦪 扇贝/牡蛎</td><td><strong>13.3g</strong></td><td>72</td><td>蒜蓉蒸，配豆腐干</td></tr>
+    </table>
+    <div class="tip">💡 扇贝蛋白偏低时，多加一份豆腐干（30g → 4.5g补上）</div>
+  </div>
+
+  <div class="section-title">🫘 豆制品补充（晚餐搭配）</div>
+  <div class="card">
+    <table>
+      <tr><th>食材</th><th>份量</th><th>蛋白</th></tr>
+      <tr><td>豆腐干</td><td>3-4块 ~30g</td><td>4.5g</td></tr>
+      <tr><td>豆腐丝</td><td>一把 ~40g</td><td>8.6g</td></tr>
+      <tr><td>千张</td><td>1张 ~25g</td><td>6.1g</td></tr>
+      <tr><td>腐竹（泡发）</td><td>20g 干</td><td>8.9g</td></tr>
+    </table>
+  </div>
+
+  <div class="tip">
+    💡 <strong>晚餐原则：</strong>鱼肉蛋白易消化、脂肪少，晚上不增加胃肠负担。用鱼不用红肉，配少量豆腐干补足蛋白。
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>首页</a>
+  <a href="breakfast.html" class="nav-item"><span class="nav-icon">🌅</span>早餐</a>
+  <a href="lunch.html" class="nav-item"><span class="nav-icon">☀️</span>午餐</a>
+  <a href="dinner.html" class="nav-item active"><span class="nav-icon">🌙</span>晚餐</a>
+  <a href="more.html" class="nav-item"><span class="nav-icon">📋</span>更多</a>
+</nav>
+
+</body>
+</html>

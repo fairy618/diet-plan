@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>营养问答 · 饮食方案</title>
+<style>
+:root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--t); line-height:1.6; padding-bottom:80px; }
+.container { max-width:600px; margin:0 auto; padding:0 14px; }
+.header { background:linear-gradient(135deg,#2c6faa,#1a4f7a); color:#fff; padding:16px 20px; text-align:center; }
+.header h1 { font-size:17px; }
+.back { display:inline-block; color:#fff; text-decoration:none; font-size:13px; margin-bottom:6px; opacity:0.8; }
+.card { background:var(--card); border-radius:12px; padding:14px; margin-bottom:8px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.card .q { font-size:14px; font-weight:700; color:var(--pri); margin-bottom:6px; }
+.card .a { font-size:13px; color:var(--t2); line-height:1.8; }
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
+.nav-item { flex:1; text-align:center; padding:8px 4px; text-decoration:none; color:var(--t2); font-size:10px; }
+.nav-item .nav-icon { display:block; font-size:20px; margin-bottom:1px; }
+.nav-item.active { color:var(--pri); font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="more.html" class="back">← 返回</a>
+  <h1>❓ 营养常见问答</h1>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <div class="q">能"饿死"病灶吗？</div>
+    <div class="a">不能。营养摄入不足会影响正常细胞发挥功能，但病灶细胞仍然会掠夺正常细胞的营养。目前<strong>没有证据</strong>表明增加营养会促进病灶细胞生长。</div>
+  </div>
+
+  <div class="card">
+    <div class="q">喝汤有营养吗？</div>
+    <div class="a">汤的味道鲜美，可以刺激食欲，但<strong>营养密度很低</strong>，不能提供足够的能量和营养。真正营养丰富的物质在熬汤的原料（肉/菜）中，光喝汤不够。</div>
+  </div>
+
+  <div class="card">
+    <div class="q">吃泥鳅能升白细胞？</div>
+    <div class="a">目前<strong>没有足够的研究证据</strong>支持。升白细胞需要结合临床治疗，一般一个阶段放化疗结束后，用药停止后可逐步恢复正常。</div>
+  </div>
+
+  <div class="card">
+    <div class="q">"发物"能吃吗？</div>
+    <div class="a">发物是民间说法，常见的有香菜、海鲜、鸡蛋、牛肉、鸡肉、魔芋。若既往吃这类食物<strong>没有过敏、不适</strong>，不用刻意限制。</div>
+  </div>
+
+  <div class="card">
+    <div class="q">只吃稀饭够营养吗？</div>
+    <div class="a">不够。稀饭营养不全面，能量密度低，但易于消化。吞咽功能不好时，可在稀饭里<strong>加入肉沫和蔬菜粒</strong>，增加营养。</div>
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>首页</a>
+  <a href="breakfast.html" class="nav-item"><span class="nav-icon">🌅</span>早餐</a>
+  <a href="lunch.html" class="nav-item"><span class="nav-icon">☀️</span>午餐</a>
+  <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
+  <a href="more.html" class="nav-item active"><span class="nav-icon">📋</span>更多</a>
+</nav>
+
+</body>
+</html>

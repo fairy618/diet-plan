@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>采购清单 · 饮食方案</title>
+<style>
+:root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--t); line-height:1.6; padding-bottom:80px; }
+.container { max-width:600px; margin:0 auto; padding:0 14px; }
+.header { background:linear-gradient(135deg,#2a7f62,#1a5c46); color:#fff; padding:16px 20px; text-align:center; }
+.header h1 { font-size:17px; }
+.back { display:inline-block; color:#fff; text-decoration:none; font-size:13px; margin-bottom:6px; opacity:0.8; }
+.section-title { font-size:15px; font-weight:700; color:var(--pri); margin:14px 0 8px; padding-left:10px; border-left:3px solid var(--pri); }
+.card { background:var(--card); border-radius:12px; padding:14px; margin-bottom:8px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+table { width:100%; font-size:13px; border-collapse:collapse; }
+table th { text-align:left; background:var(--pri-light); color:var(--pri); padding:8px 6px; font-size:11px; }
+table td { padding:8px 6px; border-bottom:1px solid var(--border); }
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
+.nav-item { flex:1; text-align:center; padding:8px 4px; text-decoration:none; color:var(--t2); font-size:10px; }
+.nav-item .nav-icon { display:block; font-size:20px; margin-bottom:1px; }
+.nav-item.active { color:var(--pri); font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="more.html" class="back">← 返回</a>
+  <h1>🛒 一周采购清单（73kg）</h1>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <table>
+      <tr><th>类别</th><th>一周总量</th><th>具体安排</th></tr>
+      <tr><td>🥚 蛋</td><td><strong>14 个</strong></td><td>每天 2 个</td></tr>
+      <tr><td>🥛 奶</td><td><strong>~3.2L</strong></td><td>早 250ml + 睡前 200ml ×7</td></tr>
+      <tr><td>🥩 肉</td><td><strong>~840g</strong></td><td>每天 120g，猪→鸡→牛→鸭→虾→羊</td></tr>
+      <tr><td>🐟 鱼/海鲜</td><td><strong>~840g</strong></td><td>每天 120g，鲈→鲫→带→草→虾→蟹→贝</td></tr>
+      <tr><td>🫘 豆制品</td><td><strong>豆腐 2块 + 豆干 6块</strong></td><td>午晚餐各配一种</td></tr>
+      <tr><td>🥬 蔬菜</td><td><strong>2.5-3.5kg</strong></td><td>每天 350-500g，绿+红+白/菌菇</td></tr>
+      <tr><td>🍎 水果</td><td><strong>~2kg</strong></td><td>苹果/香蕉/橙/梨/猕猴桃/葡萄</td></tr>
+      <tr><td>🍚 主食</td><td><strong>大米 1.2kg + 面粉 0.5kg</strong></td><td>午晚饭+早餐馒头/花卷</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🛒 参考预算</div>
+  <div class="card" style="font-size:13px; line-height:2;">
+    蛋 ~¥14 · 奶 ~¥40 · 肉 ~¥60 · 鱼 ~¥70<br>
+    豆制品 ~¥15 · 蔬菜 ~¥30 · 水果 ~¥40 · 主食 ~¥15<br>
+    <strong>一周合计约 ¥280-300</strong> · 日均 ¥40-43
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>首页</a>
+  <a href="breakfast.html" class="nav-item"><span class="nav-icon">🌅</span>早餐</a>
+  <a href="lunch.html" class="nav-item"><span class="nav-icon">☀️</span>午餐</a>
+  <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
+  <a href="more.html" class="nav-item active"><span class="nav-icon">📋</span>更多</a>
+</nav>
+
+</body>
+</html>

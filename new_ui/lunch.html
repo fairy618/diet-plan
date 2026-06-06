@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>午餐 · 饮食方案</title>
+<style>
+:root { --pri: #2a7f62; --pri-light: #e8f5f0; --bg: #f7f8fa; --card: #fff; --t: #333; --t2: #666; --border: #eee; --warn: #e07b39; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--t); line-height:1.6; padding-bottom:80px; }
+.container { max-width:600px; margin:0 auto; padding:0 14px; }
+.header { background:linear-gradient(135deg,#2a7f62,#1a5c46); color:#fff; padding:20px; text-align:center; }
+.header h1 { font-size:18px; font-weight:700; }
+.header .sub { font-size:12px; opacity:0.8; margin-top:2px; }
+.section-title { font-size:15px; font-weight:700; color:var(--pri); margin:16px 0 10px; padding-left:10px; border-left:3px solid var(--pri); }
+.card { background:var(--card); border-radius:12px; padding:14px; margin-bottom:10px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.card h3 { font-size:14px; font-weight:600; color:var(--pri); margin-bottom:8px; }
+.food-list { font-size:14px; line-height:2.2; }
+.food-list .detail { font-size:12px; color:var(--t2); }
+.summary { margin-top:8px; padding-top:8px; border-top:1px dashed var(--border); font-size:13px; font-weight:600; color:var(--pri); display:flex; justify-content:space-between; flex-wrap:wrap; }
+table { width:100%; font-size:13px; border-collapse:collapse; }
+table th { text-align:left; background:var(--pri-light); color:var(--pri); padding:8px 6px; font-size:11px; }
+table td { padding:8px 6px; border-bottom:1px solid var(--border); }
+.tip { background:var(--pri-light); border-radius:8px; padding:10px; font-size:12px; color:var(--t2); margin-top:8px; }
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); display:flex; z-index:100; padding-bottom:env(safe-area-inset-bottom); }
+.nav-item { flex:1; text-align:center; padding:8px 4px; text-decoration:none; color:var(--t2); font-size:10px; }
+.nav-item .nav-icon { display:block; font-size:20px; margin-bottom:1px; }
+.nav-item.active { color:var(--pri); font-weight:600; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>☀️ 午餐 · 43.8g 蛋白</h1>
+  <div class="sub">12:00 · 一天中最大份蛋白</div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">🍽️ 今日搭配</div>
+  <div class="card">
+    <div class="food-list">
+      🍚 米饭 <strong>1.5 碗（300g 熟饭）</strong> <span class="detail">（7.8g 蛋白）</span><br>
+      🥩 炒猪瘦肉 <strong>巴掌心大（120g）</strong> <span class="detail">（24.4g 蛋白，动物蛋白优质来源）</span><br>
+      🫘 家常豆腐 <strong>半块（100g）</strong> <span class="detail">（6.6g 蛋白）</span><br>
+      🥬 炒时蔬 <strong>1 盘（200g）</strong> <span class="detail">（菠菜/油菜/西兰花，约 5g 蛋白）</span><br>
+      🫒 菜籽油 <strong>10g</strong> · 🥣 汤/温水 <strong>300ml</strong>
+    </div>
+    <div class="summary">
+      <span>🥩 蛋白 43.8g</span><span>🔥 750 kcal</span><span>💧 500ml</span>
+    </div>
+  </div>
+
+  <div class="section-title">🥩 肉类 7 日轮换（每天 120g）</div>
+  <div class="card">
+    <table>
+      <tr><th>星期</th><th>食材</th><th>120g蛋白</th><th>做法</th></tr>
+      <tr><td>一</td><td>🍗 鸡胸脯肉</td><td><strong>29.5g</strong></td><td>切丝炒青椒</td></tr>
+      <tr><td>二</td><td>🐷 猪瘦肉</td><td><strong>24.4g</strong></td><td>炒肉丝/肉片</td></tr>
+      <tr><td>三</td><td>🐂 酱牛肉</td><td><strong>39.8g</strong></td><td>切片凉拌</td></tr>
+      <tr><td>四</td><td>🦆 鸡腿肉</td><td><strong>24.2g</strong></td><td>红烧/炖汤</td></tr>
+      <tr><td>五</td><td>🐂 牛腱子</td><td><strong>27.6g</strong></td><td>卤牛肉切片</td></tr>
+      <tr><td>六</td><td>🦐 虾仁/基围虾</td><td><strong>25.0g</strong></td><td>清炒/白灼</td></tr>
+      <tr><td>日</td><td>🐑 羊肉（瘦）</td><td><strong>22.2g</strong></td><td>炖萝卜/葱爆</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🫘 豆制品搭配（每餐加一样）</div>
+  <div class="card">
+    <table>
+      <tr><th>食材</th><th>份量</th><th>蛋白</th><th>做法</th></tr>
+      <tr><td>老豆腐</td><td>半块 ~150g</td><td>9.9g</td><td>炖/烧/煎</td></tr>
+      <tr><td>豆腐干</td><td>3-4块 ~50g</td><td>7.5g</td><td>切丝炒肉</td></tr>
+      <tr><td>千张（百页）</td><td>1-2张 ~50g</td><td>12.3g</td><td>切丝炒/凉拌</td></tr>
+      <tr><td>腐竹（泡发）</td><td>30g 干</td><td>13.4g</td><td>烧肉/凉拌</td></tr>
+      <tr><td>豆腐皮</td><td>1张 ~30g</td><td>15.5g</td><td>百搭</td></tr>
+    </table>
+  </div>
+
+  <div class="section-title">🥬 蔬菜彩虹搭配法（每天 300-500g）</div>
+  <div class="card">
+    <table>
+      <tr><th>颜色</th><th>推荐蔬菜</th></tr>
+      <tr><td>🟢 绿色</td><td>菠菜(2.6g蛋白)、西兰花(3.5g)、油菜、芥蓝、豌豆苗</td></tr>
+      <tr><td>🔴 红色</td><td>番茄、红椒、胡萝卜</td></tr>
+      <tr><td>🟡 白色</td><td>白菜、白萝卜、菜花(2g)、山药、莲藕</td></tr>
+      <tr><td>🍄 菌菇</td><td>香菇(2.2g)、金针菇、平菇、木耳</td></tr>
+    </table>
+    <div class="tip">💡 每天至少 2 种颜色，午餐绿色+红色，晚餐白色+菌菇</div>
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span>首页</a>
+  <a href="breakfast.html" class="nav-item"><span class="nav-icon">🌅</span>早餐</a>
+  <a href="lunch.html" class="nav-item active"><span class="nav-icon">☀️</span>午餐</a>
+  <a href="dinner.html" class="nav-item"><span class="nav-icon">🌙</span>晚餐</a>
+  <a href="more.html" class="nav-item"><span class="nav-icon">📋</span>更多</a>
+</nav>
+
+</body>
+</html>
