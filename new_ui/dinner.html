@@ -80,6 +80,16 @@ table td { padding:12px 10px; border-bottom:1px solid var(--border); }
     💡 <strong>晚餐原则：</strong>鱼肉蛋白易消化、脂肪少，晚上不增加胃肠负担。用鱼不用红肉，配少量豆腐干补足蛋白。
   </div>
 
+
+<script>
+var s=JSON.parse(localStorage.getItem("userSettings")||"{"weight":73,"mode":"treatment"}");
+if(s.mode==="normal"){
+  var lo=Math.round(s.weight*0.8),hi=Math.round(s.weight*1.2);
+  var sub=document.querySelector(".header .sub");
+  if(sub)sub.textContent="🌿 日常模式 · "+s.weight+"kg · 今日蛋白 "+lo+"~"+hi+"g";
+}
+</script>
+
 </div>
 
 <nav class="bottom-nav">

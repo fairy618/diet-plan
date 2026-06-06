@@ -95,6 +95,14 @@ table td:last-child { text-align:right; font-weight:600; color:var(--pri); }
     · 2蛋+酸奶+杂粮粥 = <strong>25.1g</strong>（偏少，午餐补）
   </div>
 
+<script>
+var s = JSON.parse(localStorage.getItem('userSettings') || '{"weight":73,"mode":"treatment"}');
+if (s.mode === 'normal') {
+  var lo = Math.round(s.weight * 0.8), hi = Math.round(s.weight * 1.2);
+  document.querySelector('.header .sub').textContent = '🌿 日常模式 · ' + s.weight + 'kg · 今日蛋白 ' + lo + '~' + hi + 'g';
+}
+</script>
+
 </div>
 
 <nav class="bottom-nav">

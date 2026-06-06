@@ -88,6 +88,16 @@ table td { padding:12px 10px; border-bottom:1px solid var(--border); }
     <div class="tip">💡 每天至少 2 种颜色，午餐绿色+红色，晚餐白色+菌菇</div>
   </div>
 
+
+<script>
+var s=JSON.parse(localStorage.getItem("userSettings")||"{"weight":73,"mode":"treatment"}");
+if(s.mode==="normal"){
+  var lo=Math.round(s.weight*0.8),hi=Math.round(s.weight*1.2);
+  var sub=document.querySelector(".header .sub");
+  if(sub)sub.textContent="🌿 日常模式 · "+s.weight+"kg · 今日蛋白 "+lo+"~"+hi+"g";
+}
+</script>
+
 </div>
 
 <nav class="bottom-nav">
