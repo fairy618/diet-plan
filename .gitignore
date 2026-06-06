@@ -1,0 +1,19 @@
+# Nutridata crawler outputs (large files)
+nutridata_data-main/foods_data_complete.json
+nutridata_data-main/foods_data_progress.json
+nutridata_data-main/food_images/
+nutridata_data-main/crawl.log
+nutridata_data-main/chromedriver_win64/
+nutridata_data-main/*.py
+nutridata_data-main/*.ipynb
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Temp files
+*.tmp
+qrcode.png
