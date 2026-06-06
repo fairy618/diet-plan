@@ -29,17 +29,18 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 .nav-item { flex:1; text-align:center; padding:14px 6px; text-decoration:none; color:var(--t2); font-size:15px; font-weight:500; }
 .nav-item .nav-icon { display:block; font-size:28px; margin-bottom:2px; }
 .nav-item.active { color:var(--pri); font-weight:600; }
-  .mode-section { margin-top:20px; padding:12px 14px; background:var(--card); border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); font-size:15px; }
-  .mode-section .hint { font-size:13px; color:#bbb; margin-bottom:8px; }
-  .mode-row { display:flex; align-items:center; gap:8px; }
+  .mode-section { margin-top:20px; padding:14px; background:var(--card); border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); font-size:15px; }
+  .mode-section .hint { font-size:13px; color:#bbb; margin-bottom:10px; }
+  .mode-row { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
   .mode-row label { font-size:15px; color:var(--t2); }
   .mode-row input { width:60px; padding:6px 8px; border:1.5px solid var(--border); border-radius:8px; font-size:16px; text-align:center; }
   .mode-row .unit { font-size:14px; color:var(--t2); }
-  .mode-row button { padding:8px 16px; border:none; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; }
-  .btn-treatment { background:var(--pri); color:#fff; }
-  .btn-normal { background:#f0f0f0; color:var(--t2); }
-  .btn-normal.active { background:#e07b39; color:#fff; }
-  .btn-treatment.active { background:var(--pri); color:#fff; }
+  .toggle-wrap { position:relative; display:flex; background:#e8e8e8; border-radius:10px; padding:3px; }
+  .toggle-option { flex:1; text-align:center; padding:10px 8px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; z-index:1; transition:color 0.2s; color:var(--t2); }
+  .toggle-option.active { color:#fff; }
+  .toggle-slider { position:absolute; top:3px; left:3px; width:calc(50% - 3px); height:calc(100% - 6px); border-radius:8px; transition:transform 0.25s ease; z-index:0; }
+  .toggle-slider.treatment { background:var(--pri); transform:translateX(0); }
+  .toggle-slider.normal { background:#e07b39; transform:translateX(100%); }
 </style>
 </head>
 <body>
@@ -94,8 +95,11 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
       <span class="unit">kg</span>
     </div>
     <div class="mode-row">
-      <button class="btn-treatment active" id="btnTreatment">🏥 加强营养</button>
-      <button class="btn-normal" id="btnNormal">🌿 日常营养</button>
+      <div class="toggle-wrap" id="modeToggle">
+        <div class="toggle-slider treatment" id="toggleSlider"></div>
+        <div class="toggle-option active" data-mode="treatment">🏥 加强营养</div>
+        <div class="toggle-option" data-mode="normal">🌿 日常营养</div>
+      </div>
     </div>
     <div style="font-size:12px;color:#bbb;margin-top:6px;" id="modeDesc">蛋白目标 110~146g/天 · 含治疗期指南</div>
   </div>
@@ -105,21 +109,23 @@ body { font-family: -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Ya
 <script>
 var settings = JSON.parse(localStorage.getItem('userSettings') || '{"weight":73,"mode":"treatment"}');
 var weightInput = document.getElementById('weightInput');
-var btnTreatment = document.getElementById('btnTreatment');
-var btnNormal = document.getElementById('btnNormal');
+var toggleSlider = document.getElementById('toggleSlider');
+var toggleOptions = document.querySelectorAll('.toggle-option');
 var modeDesc = document.getElementById('modeDesc');
 var targetCards = document.querySelectorAll('.target-card .num');
 
 function updateUI() {
   weightInput.value = settings.weight;
+  toggleSlider.className = 'toggle-slider ' + settings.mode;
+  toggleOptions.forEach(function(opt) {
+    opt.classList.toggle('active', opt.dataset.mode === settings.mode);
+  });
   if (settings.mode === 'treatment') {
-    btnTreatment.classList.add('active'); btnNormal.classList.remove('active');
     var lo = Math.round(settings.weight * 1.5);
     var hi = Math.round(settings.weight * 2.0);
     modeDesc.textContent = '蛋白目标 ' + lo + '~' + hi + 'g/天 · 含治疗期指南';
     if (targetCards[0]) targetCards[0].innerHTML = Math.round(settings.weight * 1.7) + '<span class="unit">g</span>';
   } else {
-    btnTreatment.classList.remove('active'); btnNormal.classList.add('active');
     var lo2 = Math.round(settings.weight * 0.8);
     var hi2 = Math.round(settings.weight * 1.2);
     modeDesc.textContent = '蛋白目标 ' + lo2 + '~' + hi2 + 'g/天 · 日常均衡营养';
@@ -133,14 +139,11 @@ weightInput.addEventListener('change', function() {
   updateUI();
 });
 
-btnTreatment.addEventListener('click', function() {
-  settings.mode = 'treatment';
-  updateUI();
-});
-
-btnNormal.addEventListener('click', function() {
-  settings.mode = 'normal';
-  updateUI();
+toggleOptions.forEach(function(opt) {
+  opt.addEventListener('click', function() {
+    settings.mode = this.dataset.mode;
+    updateUI();
+  });
 });
 
 updateUI();
